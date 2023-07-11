@@ -18,7 +18,7 @@ const Login = () => {
     if (loginInputs.email === "" || loginInputs.password === "") {
       alert("please enter data in both fields");
     } else {
-      let record = await fetch("https://gym-front-end.vercel.app/login", {
+      let record = await fetch("https://gym-backend-gamma.vercel.app/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(loginInputs),

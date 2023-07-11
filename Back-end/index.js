@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 const corsOptions = {
   origin: "https://gym-backend-gamma.vercel.app/",
   credentials: true, //access-control-allow-credentials:true
+  methods:["GET","POST"],
   optionSuccessStatus: 200,
 };
 const PORT = 4000
