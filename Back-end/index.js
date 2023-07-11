@@ -12,7 +12,7 @@ const activityPostController = require("./controllers/activityPostController.js"
 const app = express();
 app.use(bodyParser.json());
 const corsOptions = {
-  origin: "*",
+  origin: "https://gym-backend-gamma.vercel.app/",
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
