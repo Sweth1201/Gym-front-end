@@ -1,0 +1,31 @@
+name: Run Tests and Send Mail
+
+on:
+  push:
+    branches:
+      - main  # Trigger when code is pushed to main
+
+jobs:
+  test-and-mail:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.10
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run test script
+        run: |
+          python test.py
+
+      - name: Run report mail script
+        run: |
+          python Report-check.py
