@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone Repo') {
+            steps {
+                // Jenkins will automatically clone the repo
+                echo '🔄 Cloning repo...'
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                echo '🚀 Running test.py...'
+                sh 'pytest test.py --html=report.html'
+            }
+        }
+
+        stage('Check & Send Report') {
+            steps {
+                echo '📬 Running report-check.py...'
+                sh 'python3 report-check.py'
+            }
+        }
+    }
+
+    post {
+        always {
+            echo '📦 Archiving report...'
+            archiveArtifacts artifacts: 'report.html', onlyIfSuccessful: false
+        }
+    }
+}
