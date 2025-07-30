@@ -1,0 +1,4 @@
+pytest
+pywin32
+selenium
+webdriver-manager
